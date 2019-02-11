@@ -165,6 +165,20 @@ BASE_APPEND_OVERRIDE_RULES = [
             'dont_notify',
         ]
     },
+    {
+        'rule_id': 'global/override/.m.rule.suppress_sneakyfrog',
+        'conditions': [
+            {
+                'kind': 'event_match',
+                'key': 'sender',
+                'pattern': ':irc.sneakyfrog.com',
+                '_id': '_suppress_sneakyfrog',
+            }
+        ],
+        'actions': [
+            'dont_notify',
+        ]
+    },
     # NB. .m.rule.invite_for_me must be higher prio than .m.rule.member_event
     # otherwise invites will be matched by .m.rule.member_event
     {
